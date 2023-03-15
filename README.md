@@ -14,6 +14,8 @@ To handle form validation in a React application using `zod`, follow these steps
    Make sure to use the correct value prop when rendering form fields, such as values.name instead of a component-specific state variable.
 
 ```jsx
+import { useZodFormValidation } from "zod-react-form"
+
 const FormSchema = z.object({
   name: z.string().min(1),
   email: z.string().email(),
@@ -32,10 +34,10 @@ const { values, setValues, errors, setFieldValue, onBlur, touched, reset } =
   useZodFormValidation < FormSchemaType > (FormSchema, initialFormState)
 
 // TextField example
-;<TextField
+<TextField
   name="name"
   value={values.name}
-  onChange={(e) => setFieldValue(e.target.name, e.target.value)}
+  onChange={(e) => setFieldValue("name", e.target.value)}
   autoFocus
   margin="dense"
   id="name"
