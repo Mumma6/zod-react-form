@@ -6,10 +6,10 @@ import { cloneWithDefaultValues, generateErrorObject } from "./utils"
 
 export { ErrorsType, TouchedType, IZodFormValidation }
 
-export const useZodFormValidation = <FValues extends object>(
+export function useZodFormValidation<FValues extends object>(
   schema: z.Schema,
   formData: FValues
-): IZodFormValidation<FValues> => {
+): IZodFormValidation<FValues> {
   const [values, setValues] = useState<FValues>(formData)
   const [errors, setErrors] = useState<ErrorsType<FValues>>(cloneWithDefaultValues(formData, undefined))
   const [touched, setTouched] = useState<TouchedType<FValues>>(cloneWithDefaultValues(formData, false))
