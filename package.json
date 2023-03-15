@@ -2,7 +2,7 @@
   "name": "zod-react-form",
   "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -11,6 +11,12 @@
     "test": "jest"
   },
   "author": "Martin Persson",
+  "keywords": [
+    "react",
+    "zod",
+    "form",
+    "validation"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
