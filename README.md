@@ -30,8 +30,8 @@ const initialFormState = {
 type FormSchemaType = z.infer<typeof FormSchema>
 
 // Pass the interface, schema and initial form the the hook.
-const { values, setValues, errors, setFieldValue, onBlur, touched, reset } =
-  useZodFormValidation < FormSchemaType > (FormSchema, initialFormState)
+const { values, errors, setFieldValue, onBlur, touched, reset } =
+  useZodFormValidation <FormSchemaType> (FormSchema, initialFormState)
 
 // TextField example
 <TextField
@@ -48,4 +48,23 @@ const { values, setValues, errors, setFieldValue, onBlur, touched, reset } =
   helperText={(touched.name && errors.name) || " "}
   error={Boolean(touched.name && errors.name)}
 />
+
+
+
 ```
+
+# API Description
+
+values: an object containing the current form values.
+
+errors: an object containing any validation errors that have occurred in the form.
+
+setFieldValue: a function that takes a key and value as inputs, and updates the form data with the new value.
+
+onBlur: a function that takes a key as input and sets the corresponding field as "touched".
+
+touched: an object containing a boolean value for each field, indicating whether it has been "touched" or not.
+
+reset: a function that resets the form to its initial state.
+
+isDisabled: a function that takes an optional validator function as input, and returns a boolean indicating whether the form should be disabled or not. The validator function can be used to check additional conditions before disabling the form.

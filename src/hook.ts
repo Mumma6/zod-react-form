@@ -49,20 +49,20 @@ export function useZodFormValidation<FValues extends object>(
 
   const reset = useCallback(() => {
     setTouched(cloneWithDefaultValues(formData, false))
+    setErrors(cloneWithDefaultValues(formData, undefined))
   }, [])
 
   const isDisabled = useCallback(
     (validator?: () => boolean) => {
       const formErrors = Object.values(errors).some((error) => error)
 
-      return validator ? validator() || formErrors : formErrors
+      return validator ? (validator() && formErrors) || formErrors : formErrors
     },
     [errors]
   )
 
   return {
     values,
-    setValues,
     errors,
     setFieldValue,
     onBlur,
