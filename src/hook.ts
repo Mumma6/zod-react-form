@@ -32,7 +32,7 @@ export function useZodFormValidation<FValues extends object>(
           : generateErrorObjectMemoized<FValues>(parse.error.issues)
       )
     },
-    [schema, formData, generateErrorObjectMemoized]
+    [formData, generateErrorObjectMemoized]
   )
 
   useEffect(() => {
