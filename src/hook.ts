@@ -37,7 +37,7 @@ export function useZodFormValidation<FValues extends object>(
 
   useEffect(() => {
     validateValuesCallback(values)
-  }, [values, validateValuesCallback])
+  }, [values, validateValuesCallback, touched])
 
   const setFieldValue = useCallback((key: keyof FValues, value: FValues[keyof FValues]) => {
     setValues((prevState) => ({ ...prevState, [key]: value }))
