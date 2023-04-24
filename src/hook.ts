@@ -63,6 +63,7 @@ export function useZodFormValidation<FValues extends object>(
 
   return {
     values,
+    setValues,
     errors,
     setFieldValue,
     onBlur,
